@@ -19,6 +19,30 @@ class Image(models.Model):
     class Meta:
         ordering = ['-post_date']
 
+    def save_image(self):
+        '''
+        Method to save new images
+        '''
+        self.save()
+    
+    def delete_image(self):
+        '''
+        Method to delete images
+        '''
+        self.delete()
+    
+    @classmethod
+    def all_images(cls):
+        '''
+        Method to view all images
+        '''
+        images = cls.objects.all()
+        return images
+    @classmethod
+    def search_by_users(cls,term):
+        result=cls.objects.filter(user__username__icontains=term)
+        return result
+
 class Comments(models.Model):
     comment=models.TextField(max_length=50)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
