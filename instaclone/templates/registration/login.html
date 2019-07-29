@@ -5,17 +5,17 @@
 <div class="container" style="background-color:#fff;">
   <div class="row">
     <div class="col-md-6">
-      <img src="/static/images/iphonIG.gif" alt="Demo" class="img-fluid" height="200">
+      <img src="/static/images/iphonIG.gif" alt="Demo" class="img-fluid" >
     </div>
     <div class="col-md-6">
       {% if form.errors %}
       <p> Some Information Might be Incorrect </p>
       {% endif %}
-      <div class="card border-primary mb-4">
+      <div class="card mb-4">
         <div class="card-header text-center">
-          <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:purple;font-size:65px;">Instagram</h1>
+          <h1 class="h1" style="font-family: 'Grand Hotel', cursive; font-size:65px;">Instagram</h1>
         </div>
-        <div class="card-body text-primary">
+        <div class="card-body">
           <form action="/accounts/login/" method="post">
             {% csrf_token %} 
             {% bootstrap_form form%}

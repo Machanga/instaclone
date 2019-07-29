@@ -10,14 +10,13 @@
 {% block content%}
 <header>
 	<div class="container">
-	
 	    <div class="profile">
 		<div class="row">
 		<div class="col-md-6">
 			<div class="profile-image">
                 {% if pic %}
                 {% for i in pic%}
-                <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile" style="height:35%; width:35%">
+                <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile" style="height:40%; width:40%">
 			</div>
 		</div>
 
@@ -32,14 +31,14 @@
             </div>
             {% endfor%}
             {% else%}
-            <div class="alert">
+            <div >
             <a href="{% url 'edit'%}"><button class="btn profile-edit-btn">Upload Profile</button></a>
             </p>
             </div>
         	{% endif%}
             <br>
-			<div class="alert">
-				<a class="animated fadeIn alert alert-info" href="{% url 'upload'%}">Upload photos
+			<div >
+				<a class="animated fadeIn alert alert-info" href="{% url 'upload'%}">Upload photos</a>
 			</div>
 		</div>
 		</div>
@@ -54,23 +53,16 @@
 					{% if profile %}
 					{% for photo in profile%}
 				<div class="gallery-item" tabindex="0">
-					<img src="{{photo.image.url}}" class="gallery-image" alt="" style="height:35%; width:35%">
+					<img src="{{photo.image.url}}" class="gallery-image" alt="" style="height:40%; width:40%">
 					<div class="gallery-item-info">
 						<ul>
-							<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</li>
-							<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i></li>
-						</ul>
-					</div>
-				</div>
-				{% endfor %}
-				{% else%}
-        		<div>
-				<a class="animated fadeIn alert alert-info" href="{% url 'upload'%}">Upload photos
+							<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</li><a class="animated fadeIn alert alert-info" href="{% url 'upload'%}">Upload photos
 			</div>
+			{% endfor %}
         {% endif%}
 			</div>
 		</div>
 	</div>
 	</div>
 	</main>
-{%endblock%}
+{% endblock%}
