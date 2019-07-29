@@ -51,6 +51,9 @@ class Comments(models.Model):
     def __str__(self):
         return self.comment
 
+    def save_comments(self):
+        self.save()
+
 class Followers(models.Model):
     user = models.CharField(max_length=20, default="")
     follower = models.CharField(max_length=20, default="")
@@ -58,9 +61,33 @@ class Followers(models.Model):
     def __str__(self):
         return self.follower
 
+    def save_followers(self):
+        self.save()
+
 class PhotoLikes(models.Model):
     postid = models.IntegerField()
     liker = models.CharField(max_length=20)
 
     def __str__(self):
         return self.liker
+
+    def save_likes(self):
+        self.save()
+
+class Profile(models.Model):
+    pic=models.ImageField(upload_to='profile/',blank=True)
+    bio=models.CharField(max_length=30)
+    userId=models.IntegerField()
+
+    def __str__(self):
+        return self.bio
+
+    class Meta:
+        ordering=['pic']
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        profile=Profile.objects.all().delete()
+        return profile
