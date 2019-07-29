@@ -162,3 +162,16 @@ def profile(request,user_id):
     else:
         form=FollowForm()
     return render(request,"user.html",{"users":users,'profile':profile_photos,"pic":profile,"form":form,"all":all, "following":following, "posts":posts})
+
+@login_required(login_url="/accounts/login/")
+def search(request):
+    if 'user' in request.GET and request.GET["user"]:
+        search_term = request.GET.get("user")
+        images= Image.search_by_users(search_term)
+        message = f"{search_term}"
+        
+        return render(request,'search.html',{"message":message,"images":images})
+
+    else:
+        message="You haven't searched for any user"
+        return render(request,'search.html',{"message":message})
