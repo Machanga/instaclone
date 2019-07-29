@@ -8,6 +8,7 @@ urlpatterns=[
     url(r'^upload$', views.upload, name='upload'),
     url(r'^myprofile$',views.myprofile,name='myprofile'),
     url(r'myprofile/edit$',views.edit,name='edit'),
+     url(r'image/comment/(\d+)/$',views.comments,name='comment'),
 ]
 
 if settings.DEBUG:
