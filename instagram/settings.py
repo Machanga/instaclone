@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'instagram.wsgi.application'
       
 #    }
 # production
-else:
+# else:
     DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
