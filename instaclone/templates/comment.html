@@ -61,7 +61,7 @@
           <h1>Comments</h1>
           {% if comments%}
           {% for all in comments%}
-          <span id="span"><strong>{{all.user}}...</strong></span><span class="font"> {{all.comment}}  </span><br><br>
+          <span id="span"><strong>{{all.user}}: </strong></span><span class="font"> {{all.comment}}  </span><br><br>
           {% endfor%}
           {% endif%}
             <br>
