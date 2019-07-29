@@ -33,3 +33,10 @@ class Followers(models.Model):
 
     def __str__(self):
         return self.follower
+
+class PhotoLikes(models.Model):
+    postid = models.IntegerField()
+    liker = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.liker
