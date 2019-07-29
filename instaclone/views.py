@@ -78,6 +78,5 @@ def edit(request):
                 profile.save(update)
             return redirect("profile")
         else:
-
             form=EditProfile()
             return render(request,"edit.html",{"form":form})
