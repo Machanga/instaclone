@@ -26,3 +26,10 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.comment
+
+class Followers(models.Model):
+    user = models.CharField(max_length=20, default="")
+    follower = models.CharField(max_length=20, default="")
+
+    def __str__(self):
+        return self.follower
