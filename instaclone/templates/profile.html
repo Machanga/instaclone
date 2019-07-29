@@ -10,26 +10,30 @@
 {% block content%}
 <header>
 	<div class="container">
+	
 	    <div class="profile">
+		<div class="row">
+		<div class="col-md-6">
 			<div class="profile-image">
                 {% if pic %}
                 {% for i in pic%}
-                <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
+                <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile" style="height:35%; width:35%">
 			</div>
-	
+		</div>
+
+		<div class="col-md-6">
 			<div class="profile-user-settings">
 				<h1 class="profile-user-name">{{user}}</h1>
 				<a href="{% url 'edit'%}"><button class="btn profile-edit-btn">Update Profile</button></a>
 			</div>
 				
-	
             <div class="profile-bio">
-                <p><span class="profile-real-name">{{user}}</span> {{i.bio}}</p>
+                <p><span class="profile-real-name"><strong>Bio: </strong></span> {{i.bio}}</p>
             </div>
             {% endfor%}
             {% else%}
             <div class="alert">
-            <a href="{%url 'edit'%}"><button class="btn profile-edit-btn">Upload Profile</button></a>
+            <a href="{% url 'edit'%}"><button class="btn profile-edit-btn">Upload Profile</button></a>
             </p>
             </div>
         	{% endif%}
@@ -38,15 +42,19 @@
 				<a class="animated fadeIn alert alert-info" href="{% url 'upload'%}">Upload photos
 			</div>
 		</div>
+		</div>
+		</div>
 	</header>
 	
 	<main>
 		<div class="container">
+		<div class="row">
+		<div class="col=md-4">
 			<div class="gallery">
 					{% if profile %}
 					{% for photo in profile%}
 				<div class="gallery-item" tabindex="0">
-					<img src="{{photo.image.url}}" class="gallery-image" alt="">
+					<img src="{{photo.image.url}}" class="gallery-image" alt="" style="height:35%; width:35%">
 					<div class="gallery-item-info">
 						<ul>
 							<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</li>
@@ -56,13 +64,13 @@
 				</div>
 				{% endfor %}
 				{% else%}
-        		<div class="alert">
-          			<p class="animated fadeIn alert alert-info">Upload photos <br>
-        			</p>
-        		</div>
+        		<div>
+				<a class="animated fadeIn alert alert-info" href="{% url 'upload'%}">Upload photos
+			</div>
         {% endif%}
 			</div>
 		</div>
-	
+	</div>
+	</div>
 	</main>
 {%endblock%}

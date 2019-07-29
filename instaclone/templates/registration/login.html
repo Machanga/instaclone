@@ -1,0 +1,43 @@
+{% extends "registration/base.html"%} 
+{% load bootstrap3 %} 
+{% load static %} 
+{% block content %}
+<div class="container" style="background-color:#fff;">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="/static/images/iphonIG.gif" alt="Demo" class="img-fluid" height="200">
+    </div>
+    <div class="col-md-6">
+      {% if form.errors %}
+      <p> Some Information Might be Incorrect </p>
+      {% endif %}
+      <div class="card border-primary mb-4">
+        <div class="card-header text-center">
+          <h1 class="h1" style="font-family: 'Grand Hotel', cursive; color:purple;font-size:65px;">Instagram</h1>
+        </div>
+        <div class="card-body text-primary">
+          <form action="/accounts/login/" method="post">
+            {% csrf_token %} 
+            {% bootstrap_form form%}
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm" value="Login">
+            </div>
+      
+            <input type="hidden" name="next" value="{{next}}">
+          </form>
+        </div>
+      </div>
+        <div class="card mt-5" >
+            <div class="card-body text-center">
+              <h5 class="card-title">Don't have an account?</h5>
+              <a href="/accounts/register" class="btn btn-primary">Sign Up</a>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+</div>
+
+{% endblock %}

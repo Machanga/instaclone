@@ -11,12 +11,16 @@
 <header>
 	<div class="container">
 		<div class="profile">
+    <div class="row">
+    <div class="col-md-6">
 			<div class="profile-image">
             {% for i in pic%}
-            <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile">
+            <img class="img-fluid rounded-circle" src="{{i.pic.url}}" alt="profile" style="height:35%; width:35%"
             {% endfor%}
 			</div>
-	
+    </div>
+
+    <div class="col-md-6">
 			<div class="profile-user-settings">
             {% for user in users%}
             <h1 class="profile-user-name">{{user.username}}</h1>
@@ -43,6 +47,8 @@
 		</div>
 		</div>
 		</div>
+    </div>
+    </div>
   </header>
   
 <main>
@@ -51,7 +57,7 @@
             {% if profile%}
             {% for photo in profile%}
             <div class="gallery-item" tabindex="0">
-            <img src="{{photo.image.url}}" class="gallery-image" alt="">
+            <img src="{{photo.image.url}}" class="gallery-image" alt="" style="width:50%; height:50%">
             <div class="gallery-item-info">
               <ul>
                 <li class="gallery-item-likes"><span class="visually-hidden">Likes: </span><i class="fas fa-heart" aria-hidden="true"></i>{{photo.likes}}</li>
